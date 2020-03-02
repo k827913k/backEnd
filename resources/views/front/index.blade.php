@@ -1,5 +1,5 @@
 
-@extends("layout/nav")
+@extends("layouts/nav")
 
 @section("content")
 
@@ -12,7 +12,7 @@
             <h1 class="mbr-section-title mbr-bold pb-3 mbr-fonts-style display-1">
                 FULL SCREEN INTRO
             </h1>
-            
+
             <p class="mbr-text pb-3 mbr-fonts-style display-5">
                 Click any text to edit or style it. Select text to insert a link. Click blue "Gear" icon in the top right corner to hide/show buttons, text, title and change the block background. Click red "+" in the bottom right corner to add a new block. Use the top left menu to create new pages, sites and add themes.
             </p>

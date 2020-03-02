@@ -1,11 +1,11 @@
 
-@extends("layout/nav")
+@extends("layouts/nav")
 
 @section("content")
 
   <section class="features18 popup-btn-cards cid-rREXLuTKXz" id="features18-5">
 
-    
+
     <div class="container">
         <h2 class="mbr-section-title pb-3 align-center mbr-fonts-style display-2">
             Image features with buttons on mouseover
@@ -73,7 +73,7 @@
                 </div>
             </div>
 
-            
+
         </div>
     </div>
 

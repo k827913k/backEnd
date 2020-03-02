@@ -1,32 +1,39 @@
 
-@extends("layout/nav")
+@extends("layouts/nav")
 
 @section("content")
 
+<div class="container">
   <section class="features13 cid-rREXF6aUB7" id="features13-4">
 
-    <div class="container">
         <h2 class="mbr-section-title pb-3 mbr-fonts-style align-center display-2">
             Images with text on them
         </h2>
 
+
         <div class="media-container-row">
+
+            @foreach ($news_data as $item)
+
             <div class="card col-12 col-md-6 align-center col-lg-4">
-                <div class="card-wrap">
-                    <div class="card-img">
-                        <img src="assets/images/background1.jpg" alt="Mobirise" title="">
-                    </div>
-                    <div class="card-box p-5">
-                        <h4 class="card-title py-2 mbr-fonts-style align-center mbr-white display-5">
-                            Over 400 Amazing Blocks
-                        </h4>
-                        <p class="mbr-text mbr-fonts-style mbr-white display-7">
-                            Mobirise offers several themes that include sliders, galleries, article blocks and many more.
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <div class="card col-12 col-md-6 align-center col-lg-4">
+                            <div class="card-wrap">
+                                <div class="card-img">
+                                    <img src="{{$item->url}}" alt="Mobirise" title="">
+                                </div>
+                                <div class="card-box p-5">
+                                    <h4 class="card-title py-2 mbr-fonts-style align-center mbr-white display-5">
+                                        {{$item->title}}
+                                    </h4>
+                                    <p class="mbr-text mbr-fonts-style mbr-white display-7">
+                                        {{$item->content}}
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+            @endforeach
+
+            {{-- <div class="card col-12 col-md-6 align-center col-lg-4">
                 <div class="card-wrap">
                     <div class="card-img">
                         <img src="assets/images/background2.jpg" alt="Mobirise">
@@ -55,9 +62,11 @@
                         </p>
                     </div>
                 </div>
-            </div>    
+            </div> --}}
         </div>
     </div>
+
+
 </section>
 
 @endsection

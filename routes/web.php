@@ -16,15 +16,20 @@
 // });
 
 
-Route::get('/', function () {
-    return view('front/index');
-});
+Route::get('/', 'FrontController@index');
 
 
-Route::get('/card-01', function () {
-    return view('front/card-01');
-});
+Route::get('/card-01','FrontController@news' );
 
-Route::get('/card-02', function () {
-    return view('front/card-02');
-});
+Route::get('/card-02','FrontController@news' );
+
+
+
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/home/news', 'NewController@index');
+
+Route::post('/home/news/store', 'NewController@store');
