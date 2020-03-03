@@ -8,7 +8,7 @@
 
 @section('content')
 <div class="container">
-    <a href="/home/news/creat">
+    <a href="/home/news/create">
 <button type="button" class="btn btn-success">新增資料</button>
 </a>
 
@@ -20,7 +20,7 @@
             <th>img</th>
             <th>title</th>
             <th>content</th>
-            <th width="80">編輯/刪除</th>
+            <th width="80">修改/刪除</th>
 
         </tr>
     </thead>
@@ -31,8 +31,8 @@
                 <td>{{$item->title}}</td>
                 <td>{{$item->content}}</td>
                 <td>
-                <a href="/admin/news/edit/{{$item->id}}">
-                <button type="button" class="btn btn-success">編輯</button>
+                <a href="/home/news/edit/{{$item->id}}">
+                <button type="button" class="btn btn-success">修改</button>
                 </a>
                 <a href="/">
                 <button type="button" class="btn btn-danger">刪除</button>

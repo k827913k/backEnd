@@ -41,7 +41,7 @@
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" href="/home/news/creat">{{ __('Add') }}</a>
+                            <a class="nav-link" href="/home/news/create">{{ __('Add') }}</a>
                         </li>
 
 
