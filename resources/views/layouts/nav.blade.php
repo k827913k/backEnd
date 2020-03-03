@@ -8,7 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
   <link rel="shortcut icon" href="assets/images/logo2.png" type="image/x-icon">
   <meta name="description" content="">
-  
+
   <title>Home</title>
   <link rel="stylesheet" href="{{asset('assets/web/assets/mobirise-icons/mobirise-icons.css')}}">
   <link rel="stylesheet" href="{{asset('assets/bootstrap/css/bootstrap.min.css')}}">
@@ -20,14 +20,14 @@
   <link rel="stylesheet" href="{{asset('assets/theme/css/style.css')}}">
   <link rel="preload" as="style" href="{{asset('assets/mobirise/css/mbr-additional.css')}}">
   <link rel="stylesheet" href="{{asset('assets/mobirise/css/mbr-additional.css')}}" type="text/css">
-  
-  
-  
+
+
+
 </head>
 <body>
   <section class="menu cid-qTkzRZLJNu" once="menu" id="menu1-0">
 
-    
+
 
     <nav class="navbar navbar-expand beta-menu navbar-dropdown align-items-center navbar-fixed-top navbar-toggleable-sm">
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -68,7 +68,7 @@
                 </li>
             </ul>
             <div class="navbar-buttons mbr-section-btn">
-                <a class="btn btn-sm btn-primary display-4" href="/">
+                <a class="btn btn-sm btn-primary display-4" href="/home">
                     <span class="mbri-save mbr-iconfont mbr-iconfont-btn "></span>
                     home
                 </a>
@@ -147,7 +147,7 @@
   <script src="{{asset('assets/parallax/jarallax.min.js')}}"></script>
   <script src="{{asset('assets/smoothscroll/smooth-scroll.js')}}"></script>
   <script src="{{asset('assets/theme/js/script.js')}}"></script>
-  
-  
+
+
 </body>
 </html>

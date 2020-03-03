@@ -23,6 +23,8 @@ Route::get('/card-01','FrontController@news' );
 
 Route::get('/card-02','FrontController@news' );
 
+Route::get('/product','ProductController@product' );
+
 
 
 
@@ -30,6 +32,21 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/home/news', 'NewController@index');
+
 
 Route::post('/home/news/store', 'NewController@store');
+
+Route::group(['middleware' =>['auth']],function(){
+
+Route::get('/home/news', 'NewController@index');
+
+Route::get('/home/news/creat', 'NewController@creat');
+Route::post('/home/news/store', 'NewController@store');
+
+Route::get('/home/news/edit/{id}', 'NewController@edit');
+Route::post('/home/news/edit/{id}', 'NewController@update');
+
+
+Route::post('/home/news/delete', 'NewController@delete');
+
+});

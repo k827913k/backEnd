@@ -8,6 +8,8 @@
 
 <div class="container align-center">
     <div class="row justify-content-md-center">
+
+
         <div class="mbr-white col-md-10">
             <h1 class="mbr-section-title mbr-bold pb-3 mbr-fonts-style display-1">
                 FULL SCREEN INTRO

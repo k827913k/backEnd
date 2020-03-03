@@ -3,9 +3,9 @@
 
 @section("content")
 
-
 <div class="container">
-<form  method="POST" action="/home/news/store" >
+    <h1>編輯資料</h1>
+<form  method="POST" action="/home/news/update/{{$news->id}}" >
     @csrf
     <div class="form-group">
       <label for="IMG">IMG</label>
