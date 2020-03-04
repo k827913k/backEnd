@@ -44,6 +44,10 @@
                             <a class="nav-link" href="/home/news/create">{{ __('Add') }}</a>
                         </li>
 
+                        <li class="nav-item">
+                            <a class="nav-link" href="/product">{{ __('Product') }}</a>
+                        </li>
+
 
                         {{-- --- --}}
 
@@ -102,9 +106,9 @@
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
 
-    
+
         @yield('js')
-    
+
 
 
 </body>
