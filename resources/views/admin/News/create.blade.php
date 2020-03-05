@@ -4,12 +4,13 @@
 
 
 <div class="container">
-    <h1>新增資料</h1>
+    <h3>新增資料</h3>
+    <hr>
     <form method="POST" enctype="multipart/form-data" action="/home/news/store">
         @csrf
         <div class="form-group">
-            <label for="IMG">IMG</label>
-            <input type="file" class="form-control" id="IMG" name="url">
+            <label for="IMG">上傳圖片</label>
+            <input type="file" class="form-control" id="IMG" name="url" required>
         </div>
         <div class="form-group">
             <label for="Title">Title</label>
