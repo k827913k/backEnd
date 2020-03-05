@@ -19,7 +19,10 @@ Route::get('/', 'FrontController@index');
 
 Route::get('/card-01', 'FrontController@news');
 
+Route::get('/card-01/{id}', 'FrontController@card-01-detail');
+
 Route::get('/card-02', 'FrontController@news');
+
 
 
 //產品管理
@@ -42,7 +45,5 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/home/news/edit/{id}', 'NewController@edit'); //編輯
     Route::post('/home/news/update/{id}', 'NewController@update'); //更新
     Route::post('/home/news/delete/{id}', 'NewController@delete'); //刪除
-
-
 
 });

@@ -5,7 +5,11 @@
 
 <div class="container">
     <h1>編輯資料</h1>
-    <form method="POST" enctype="multipart/form-data" action="/home/news/update/{{$news->id}}" >
+    <h5>現有圖片</h5>
+    <img src="{{asset('/storage/'.$news->url)}}" alt="" width="120">
+    <hr>
+
+    <form method="POST" enctype="multipart/form-data" action="/home/news/update/{{$news->id}}">
         @csrf
         <div class="form-group">
             <label for="IMG">IMG</label>

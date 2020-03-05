@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateNewsTable extends Migration
+class CreateNewsImgTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,12 @@ class CreateNewsTable extends Migration
      */
     public function up()
     {
-        Schema::create('news', function (Blueprint $table) {
+        Schema::create('news_img', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('url');
-            $table->text('title');
-            $table->text('content');
+            $table->string('news_id');
+            $table->text('url');
+            $table->integer('sort')->default(0);
             $table->timestamps();
-
         });
     }
 
@@ -30,6 +29,6 @@ class CreateNewsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('news');
+        Schema::dropIfExists('news_img');
     }
 }

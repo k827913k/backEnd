@@ -33,10 +33,9 @@ class NewController extends Controller
         $file_name = $request->file('url')->store('', 'public');
         $news_data['url'] = $file_name;
 
+        //上傳檔案
         News::create($news_data);
         return redirect('home/news');
-
-        //上傳檔案
 
     }
 

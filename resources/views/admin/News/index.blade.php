@@ -22,7 +22,6 @@
                 <th>content</th>
                 <th>sort</th>
                 <th width="80">修改/刪除</th>
-
             </tr>
         </thead>
         <tbody>
@@ -37,11 +36,12 @@
                         <button type="button" class="btn btn-success">修改</button>
                     </a>
 
-                        <button type="button" class="btn btn-danger" onclick="show_confirm({{$item->id}})">刪除</button>
+                    <button type="button" class="btn btn-danger" onclick="show_confirm({{$item->id}})">刪除</button>
 
-                        <form id="delete-form-{{$item->id}}" action="/home/news/delete/{{$item->id}}" method="POST" style="display: none;">
-                            @csrf
-                        </form>
+                    <form id="delete-form-{{$item->id}}" action="/home/news/delete/{{$item->id}}" method="POST"
+                        style="display: none;">
+                        @csrf
+                    </form>
 
                 </td>
             </tr>
