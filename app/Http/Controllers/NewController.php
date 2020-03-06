@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use DB;
 use App\News;
+use App\News_IMG;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Storage;
 
 class NewController extends Controller
 {
@@ -69,21 +71,42 @@ class NewController extends Controller
             //上傳新的圖片
             $file = $request->file('url');
             $path = $this->fileUpload($file,'new-imgs');
-            $requset_Data['url'] = $path;
+            $requset_data['url'] = $path;
+            $items->update($requset_data);
         }
 
 
-        $items->update($request_data);
+        if ($request->hasFile('more_url')) {
+
+            foreach($request->file('more_url') as $more_url){
+
+            //上傳新的圖片
+            $path = $this->fileUpload($more_url,'new_imgs');
+            $requset_data['url'] = $path;
+            $items->update($requset_data);
+
+            $new_imgs = new News_IMG;
+            $new_imgs->news_id =  $items->id;
+            $new_imgs->url =  $path;
+            $new_imgs->save();
+
+        }
+
+        }
+
         return redirect('/home/news');
-
-
     }
+
 
     public function delete(Request $request, $id)
     {
-        News::find($id)->delete();
+        $item= News::find($id);
+        $item->delete();
+        Storage::delete('upload/new-imgs/'.$item->img);
+
         return redirect('/home/news');
     }
+
 
     private function fileUpload($file, $dir)
     {

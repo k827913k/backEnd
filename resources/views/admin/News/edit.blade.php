@@ -17,6 +17,10 @@
             <input type="file" class="form-control" id="IMG" name="url" enctype="multipart/form-data">
         </div>
         <div class="form-group">
+            <label for="IMG">重新上傳多張圖片</label>
+            <input type="file" class="form-control" id="IMGs[]" name="more_url[]" multiple >
+        </div>
+        <div class="form-group">
             <label for="Title">Title</label>
             <input type="text" class="form-control" id="Title" name="title" value="{{$news->title}}">
         </div>

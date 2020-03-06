@@ -13,9 +13,11 @@ class News extends Model
         'url', 'title', 'content','sort',
     ];
 
+
     public function News_IMG()
     {
         return $this->hasMany('App\News_IMG');
     }
 
 }
+

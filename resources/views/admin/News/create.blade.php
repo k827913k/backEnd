@@ -12,6 +12,12 @@
             <label for="IMG">上傳圖片</label>
             <input type="file" class="form-control" id="IMG" name="url" required>
         </div>
+
+        <div class="form-group">
+            <label for="IMG">上傳多張圖片</label>
+            <input type="file" class="form-control" id="IMGs[]" name="url" required multiple >
+        </div>
+
         <div class="form-group">
             <label for="Title">Title</label>
             <input type="text" class="form-control" id="Title" name="title">

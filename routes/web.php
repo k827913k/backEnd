@@ -15,6 +15,10 @@
 //     return view('/content/index');
 // });
 
+Route::get('/news', 'FrontController@news'); //List Page
+Route::get('/news/{id}', 'FrontController@card_detail'); //Content Page
+
+
 Route::get('/', 'FrontController@index');
 
 Route::get('/card-01', 'FrontController@news');

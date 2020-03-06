@@ -1,2 +1,2 @@
 img:
-hp artisan storage:link
+php artisan storage:link

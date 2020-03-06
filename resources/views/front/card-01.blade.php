@@ -29,7 +29,7 @@
                     </div>
                 </div>
                 <div class="navbar-buttons mbr-section-btn">
-                    <a class="btn btn-sm btn-primary display-4" href="/card-01">
+                <a class="btn btn-sm btn-primary display-4" href="/news/{{$item->id}}">
                         <span class="mbri-save mbr-iconfont mbr-iconfont-btn "></span>
                         more
                     </a>
