@@ -15,7 +15,7 @@
 
         <div class="form-group">
             <label for="IMG">上傳多張圖片</label>
-            <input type="file" class="form-control" id="IMGs[]" name="url" required multiple >
+            <input type="file" class="form-control" id="IMGs" name="more_url[]" required multiple>
         </div>
 
         <div class="form-group">

@@ -27,7 +27,7 @@
         <tbody>
             @foreach ($all_data as $item)
             <tr>
-                <td class="text-center"><img src="{{asset($item->url)}}" alt="" width="100"></td>
+                <td class="text-center"><img src="{{asset('/storage/'.$item->url)}}" alt="" width="100"></td>
                 <td>{{$item->title}}</td>
                 <td>{{$item->content}}</td>
                 <td>{{$item->sort}}</td>

@@ -18,96 +18,117 @@ class NewController extends Controller
         return view('admin/News/index', compact('all_data'));
     }
 
+//新增
     public function create()
     {
-
         return view('admin/News/create');
     }
 
+//儲存
     public function store(Request $request)
     {
+
         $news_data = $request->all();
 
         //上傳檔案 方法一
-        // $file_name = $request->file('url')->store('', 'public');
-        // $news_data['url'] = $file_name;
-
-        //上傳檔案 方法二:暴力直接move檔案到/public中
+        // php artisan storage:link
+        // 單張照片上傳使用
         if ($request->hasFile('url')) {
-            $file = $request->file('url');
-            $path = $this->fileUpload($file, 'new-imgs');
-            $news_data['url'] = $path;
+            $file_name = $request->file('url')->store('', 'public');
+            $news_data['url'] = $file_name;
         }
-        News::create($news_data);
+        $News_id =News::create($news_data);
+
+        // 多張照片上傳使用
+        if ($request->hasFile('more_url')) {
+            foreach($news_data['more_url'] as $news_data){
+
+                $file_name = $news_data->store('', 'public');
+                $user = new News_IMG;
+                // $user-> 欄位 = value
+                $user->news_id = $News_id['id'];
+                $user->url = $file_name;
+                $user->save();
+
+            }
+
+        }
+
+
         return redirect('home/news');
+        //上傳檔案 方法二:暴力直接move檔案到/public中
+        // if ($request->hasFile('url')) {
+        //     $file = $request->file('url');
+        //     $path = $this->fileUpload($file, 'new-imgs');
+        //     $news_data['url'] = $path;
+        // }
     }
 
+//修改
     public function edit($id)
     {
         $news = News::find($id);
         return view('admin/News/edit', compact('news'));
     }
 
+//更新
     public function update(Request $request, $id)
     {
-        // $news = News::find($id);
-        // $news->url = $request->url;
-        // $news->title = $request->title;
-        // $news->content = $request->content;
-        // $news->sort = $request->sort;
-        // $news->save();
 
         $request_data = $request->all();
 
         $items = News::find($id);
 
-        //如果有上傳新圖片
+        //                                       如果沒有:圖片不做動作
+        // 從$request 中 檢查變更的資料是否有含圖片 如果有 : 將舊有的圖片刪除 上傳新圖片         最後:就把$request中的資料更新回資料庫
+
+        //if有上傳新圖片
         if ($request->hasFile('url')) {
 
             //刪除舊有圖片
             $old_image = $items->url;
-            File::delete(public_path().$old_image);
+            Storage::disk('public')->delete($old_image);
 
             //上傳新的圖片
-            $file = $request->file('url');
-            $path = $this->fileUpload($file,'new-imgs');
-            $requset_data['url'] = $path;
-            $items->update($requset_data);
-        }
-
-
-        if ($request->hasFile('more_url')) {
-
-            foreach($request->file('more_url') as $more_url){
-
-            //上傳新的圖片
-            $path = $this->fileUpload($more_url,'new_imgs');
-            $requset_data['url'] = $path;
-            $items->update($requset_data);
-
-            $new_imgs = new News_IMG;
-            $new_imgs->news_id =  $items->id;
-            $new_imgs->url =  $path;
-            $new_imgs->save();
+            //file_name = 新上傳圖片的檔案名稱(被儲存在public裡)
+            // $file_name = Storage::put('', $request->file('url'));
+            // dd($file_name);
+            $file_name = $request->file('url')->store('', 'public');
+            $request_data['url'] = $file_name;
 
         }
+        $items->update($request_data);
+
+        // 如果有內頁圖片上傳時，將存入檔案以及新增新的資料到NEWSIMG裡
+        if ($request->hasFile('IMGs')) {
+            foreach($request_data['IMGs'] as $request_data){
+                //                 回傳檔案路徑 ->store('資料夾名稱','根目錄路徑')
+                $file_name = $request_data->store('', 'public');
+                $user = new News_IMG;
+                // $user-> 欄位 = value
+                $user->news_id = $id;
+                $user->url = $file_name;
+                $user->save();
+
+            }
 
         }
-
-        return redirect('/home/news');
+        return redirect('home/news');
     }
 
-
-    public function delete(Request $request, $id)
+//刪除
+    public function delete($id)
     {
-        $item= News::find($id);
+        $item = News::find($id);
+        $old_image = $item->url;
+        Storage::disk('public')->delete($old_image);
+        DB::table('news_img')->delete($id);
         $item->delete();
-        Storage::delete('upload/new-imgs/'.$item->img);
-
         return redirect('/home/news');
+
     }
 
-
+// --祖傳代碼--
     private function fileUpload($file, $dir)
     {
         //防呆：資料夾不存在時將會自動建立資料夾，避免錯誤
@@ -124,8 +145,10 @@ class NewController extends Controller
         $filename = strval(time() . md5(rand(100, 200))) . '.' . $extension;
         //移動到指定路徑
         move_uploaded_file($file, public_path() . '/upload/' . $dir . '/' . $filename);
+        // move_uploaded_file($原本檔案的路徑 , $要搬去的路徑);
         //回傳 資料庫儲存用的路徑格式
         return '/upload/' . $dir . '/' . $filename;
     }
+// --祖傳代碼--
 
 }

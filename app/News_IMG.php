@@ -19,7 +19,7 @@ class News_IMG extends Model
      *
      * @var string
      */
-    protected $table = 'News_IMG';
+    protected $table = 'news_img';
 
     /**
      * The "type" of the auto-incrementing ID.

@@ -17,7 +17,7 @@
             <div class="card col-12 col-md-6 align-center col-lg-4">
                 <div class="card-wrap">
                     <div class="card-img">
-                        <img src="{{$item->url}}" alt="Mobirise" title="">
+                        <img src="{{'/storage/'.$item->url}}" alt="Mobirise" title="">
                     </div>
                     <div class="card-box p-5">
                         <h4 class="card-title py-2 mbr-fonts-style align-center mbr-white display-5">

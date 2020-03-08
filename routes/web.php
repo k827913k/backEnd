@@ -18,7 +18,6 @@
 Route::get('/news', 'FrontController@news'); //List Page
 Route::get('/news/{id}', 'FrontController@card_detail'); //Content Page
 
-
 Route::get('/', 'FrontController@index');
 
 Route::get('/card-01', 'FrontController@news');
@@ -26,8 +25,6 @@ Route::get('/card-01', 'FrontController@news');
 Route::get('/card-01/{id}', 'FrontController@card-01-detail');
 
 Route::get('/card-02', 'FrontController@news');
-
-
 
 //產品管理
 Route::get('/product', 'FrontController@product');
