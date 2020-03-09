@@ -35,10 +35,9 @@ class FrontController extends Controller
     }
 
 
-
     //產品管理
     public function product()
     {
-        return view('admin/News/product');
+        return view('front/product');
     }
 }

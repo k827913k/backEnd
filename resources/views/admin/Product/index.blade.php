@@ -8,8 +8,8 @@
 
 @section('content')
 <div class="container">
-    <a href="/home/news/create">
-        <button type="button" class="btn btn-success">新增資料</button>
+    <a href="/home/Product/create">
+        <button type="button" class="btn btn-success">新增產品</button>
     </a>
 
     <hr>
@@ -32,13 +32,13 @@
                 <td>{!!$item->content!!}</td>
                 <td>{{$item->sort}}</td>
                 <td>
-                    <a href="/home/news/edit/{{$item->id}}">
+                    <a href="/home/Product/edit/{{$item->id}}">
                         <button type="button" class="btn btn-success">修改</button>
                     </a>
 
                     <button type="button" class="btn btn-danger" onclick="show_confirm({{$item->id}})">刪除</button>
 
-                    <form id="delete-form-{{$item->id}}" action="/home/news/delete/{{$item->id}}" method="POST"
+                    <form id="delete-form-{{$item->id}}" action="/home/product/delete/{{$item->id}}" method="POST"
                         style="display: none;">
                         @csrf
                     </form>

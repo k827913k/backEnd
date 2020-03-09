@@ -11,20 +11,25 @@
 <div class="container">
     <h3>新增資料</h3>
     <hr>
-    <form method="POST" enctype="multipart/form-data" action="/home/news/store">
+    <form method="POST" enctype="multipart/form-data" action="/home/Product/store">
         @csrf
         <div class="form-group">
-            <label for="IMG">上傳圖片</label>
+            <label for="IMG">上傳產品圖片</label>
             <input type="file" class="form-control" id="url" name="url" required>
         </div>
 
         <div class="form-group">
-            <label for="IMG">上傳圖片組</label>
+            <label for="IMG">上傳產品圖片組</label>
             <input type="file" class="form-control" id="more_url" name="more_url[]" required multiple>
         </div>
 
         <div class="form-group">
-            <label for="Title">Title</label>
+            <label for="Title">產品類別</label>
+            <input type="text" class="form-control" id="title" name="title">
+        </div>
+
+        <div class="form-group">
+            <label for="Title">產品名稱</label>
             <input type="text" class="form-control" id="title" name="title">
         </div>
         <div class="form-group">

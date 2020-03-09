@@ -54,8 +54,8 @@ class NewController extends Controller
 
         }
 
-
         return redirect('home/news');
+
         //上傳檔案 方法二:暴力直接move檔案到/public中
         // if ($request->hasFile('url')) {
         //     $file = $request->file('url');

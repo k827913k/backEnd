@@ -57,13 +57,13 @@
                 <li class="nav-item">
                     <a class="nav-link link text-white display-4" href="/card-01">
                         <span class="mbri-home mbr-iconfont mbr-iconfont-btn"></span>
-                        card-01
+                        Infor
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link link text-white display-4" href="/card-02">
+                    <a class="nav-link link text-white display-4" href="/product">
                         <span class="mbri-search mbr-iconfont mbr-iconfont-btn"></span>
-                        card-02
+                        Our Shop
                     </a>
                 </li>
             </ul>
