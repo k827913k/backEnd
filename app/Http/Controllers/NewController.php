@@ -6,7 +6,6 @@ use DB;
 use App\News;
 use App\News_IMG;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
 
 class NewController extends Controller
@@ -49,9 +48,7 @@ class NewController extends Controller
                 $user->news_id = $News_id['id'];
                 $user->url = $file_name;
                 $user->save();
-
             }
-
         }
 
         return redirect('home/news');
@@ -109,9 +106,7 @@ class NewController extends Controller
                 $user->news_id = $id;
                 $user->url = $file_name;
                 $user->save();
-
             }
-
         }
         return redirect('home/news');
     }
@@ -125,7 +120,6 @@ class NewController extends Controller
         DB::table('news_img')->delete($id);
         $item->delete();
         return redirect('/home/news');
-
     }
 
 // --祖傳代碼--

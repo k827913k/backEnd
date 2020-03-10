@@ -8,8 +8,8 @@
 
 @section('content')
 <div class="container">
-    <a href="/home/Product/create">
-        <button type="button" class="btn btn-success">新增產品</button>
+    <a href="/home/ProductType/create">
+        <button type="button" class="btn btn-success">新增產品類型</button>
     </a>
 
     <hr>
@@ -24,21 +24,21 @@
                 <th width="80">修改/刪除</th>
             </tr>
         </thead>
-        <tbody>
-            @foreach ($products_data as $product)
+        {{-- <tbody>
+            @foreach ($all_data as $item)
             <tr>
-                <td class="text-center"><img src="{{asset('/storage/'.$product->url)}}" alt="" width="100"></td>
-                <td>{{$product->title}}</td>
-                <td>{{$product->content}}</td>
-                <td>{{$product->sort}}</td>
+                <td class="text-center"><img src="{{asset('/storage/'.$item->url)}}" alt="" width="100"></td>
+                <td>{{$item->title}}</td>
+                <td>{!!$item->content!!}</td>
+                <td>{{$item->sort}}</td>
                 <td>
-                    <a href="/home/Product/edit/{{$product->id}}">
+                    <a href="/home/Product/edit/{{$item->id}}">
                         <button type="button" class="btn btn-success">修改</button>
                     </a>
 
-                    <button type="button" class="btn btn-danger" onclick="show_confirm({{$product->id}})">刪除</button>
+                    <button type="button" class="btn btn-danger" onclick="show_confirm({{$item->id}})">刪除</button>
 
-                    <form id="delete-form-{{$product->id}}" action="/home/product/delete/{{$product->id}}" method="POST"
+                    <form id="delete-form-{{$item->id}}" action="/home/product/delete/{{$item->id}}" method="POST"
                         style="display: none;">
                         @csrf
                     </form>
@@ -48,7 +48,7 @@
 
             @endforeach
 
-        </tbody>
+        </tbody> --}}
     </table>
 
 </div>

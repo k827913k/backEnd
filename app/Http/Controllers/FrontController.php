@@ -40,4 +40,10 @@ class FrontController extends Controller
     {
         return view('front/product');
     }
+
+     //產品類型管理
+     public function productType()
+     {
+         return view('front/productType');
+     }
 }

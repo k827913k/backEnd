@@ -12,8 +12,7 @@ class ProductController extends Controller
     //首頁
     public function index()
     {
-        $all_data = DB::table('products')->get();
-        return view('admin/Product/index', compact('all_data'));
+        return view('admin/Product/index');
     }
 
 

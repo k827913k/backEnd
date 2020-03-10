@@ -20,7 +20,7 @@
 
     {{-- Summernote- --}}
 
-
+    {!! ReCaptcha::htmlScriptTagJsApi() !!}
     @yield('css')
 
 
@@ -58,7 +58,7 @@
 
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                 <a class="nav-link" href="/home/Product">{{ __('產品管理') }}</a>
-                                <a class="nav-link" href="/home/Product">{{ __('產品類型管理') }}</a>
+                                <a class="nav-link" href="/home/ProductType">{{ __('產品類型管理') }}</a>
                             </div>
                         </li>
 
