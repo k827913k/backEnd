@@ -12,4 +12,10 @@ class Product extends Model
     protected $fillable = [
         'url', 'title', 'content','sort',
     ];
+
+    public function Product_IMG()
+    {
+        return $this->hasMany('App\Product_IMG');
+    }
+
 }

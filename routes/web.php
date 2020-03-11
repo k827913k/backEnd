@@ -19,10 +19,8 @@
 Route::get('/news', 'FrontController@news'); //List Page
 Route::get('/news/{id}', 'FrontController@card_detail'); //Content Page
 
-
 //Product
 Route::get('/product', 'FrontController@product'); //List Page
-
 
 // ------------------------------------------------------------------------------
 
@@ -33,8 +31,6 @@ Route::get('/card-01', 'FrontController@news');
 Route::get('/card-01/{id}', 'FrontController@card-01-detail');
 
 Route::get('/card-02', 'FrontController@news');
-
-
 
 Auth::routes();
 //首頁
@@ -54,8 +50,6 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('/home/news/update/{id}', 'NewController@update'); //更新
     Route::post('/home/news/delete/{id}', 'NewController@delete'); //刪除
 
-
-
     //產品管理
     Route::get('/home/Product', 'ProductController@index'); //首頁
     Route::get('/home/Product/create', 'ProductController@create'); //新增
@@ -63,8 +57,6 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/home/Product/edit/{id}', 'ProductController@edit'); //編輯
     Route::post('/home/Product/update/{id}', 'ProductController@update'); //更新
     Route::post('/home/Product/delete/{id}', 'ProductController@delete'); //刪除
-
-
 
     //產品類型管理
     Route::get('/home/ProductType', 'ProductTypeController@index'); //首頁
