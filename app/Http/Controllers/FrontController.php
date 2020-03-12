@@ -35,6 +35,7 @@ class FrontController extends Controller
     }
 
 
+
     //產品管理
     public function product()
     {
@@ -46,4 +47,11 @@ class FrontController extends Controller
      {
          return view('front/productType');
      }
+
+
+      //Button
+      public function product_innerpage()
+      {
+          return view('front/product_innerpage');
+      }
 }

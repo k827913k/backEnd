@@ -22,6 +22,9 @@ Route::get('/news/{id}', 'FrontController@card_detail'); //Content Page
 //Product
 Route::get('/product', 'FrontController@product'); //List Page
 
+
+Route::get('/product_innerpage', 'FrontController@product_innerpage'); //Button
+
 // ------------------------------------------------------------------------------
 
 Route::get('/', 'FrontController@index');
