@@ -21,7 +21,7 @@
   <link rel="preload" as="style" href="{{asset('assets/mobirise/css/mbr-additional.css')}}">
   <link rel="stylesheet" href="{{asset('assets/mobirise/css/mbr-additional.css')}}" type="text/css">
 
-
+@yield("css")
 
 </head>
 <body>
@@ -148,6 +148,8 @@
   <script src="{{asset('assets/smoothscroll/smooth-scroll.js')}}"></script>
   <script src="{{asset('assets/theme/js/script.js')}}"></script>
 
+
+@yield('js')
 
 </body>
 </html>
