@@ -19,11 +19,17 @@
 Route::get('/news', 'FrontController@news'); //List Page
 Route::get('/news/{id}', 'FrontController@card_detail'); //Content Page
 
+
 //Product
 Route::get('/product', 'FrontController@product'); //List Page
 
 
 Route::get('/product_innerpage', 'FrontController@product_innerpage'); //Button
+
+//contact us
+Route::get('/contact_us', 'FrontController@Contact_us'); //contact us
+Route::post('/contactUs/store', 'FrontController@contactUs_store'); //contact us
+
 
 // ------------------------------------------------------------------------------
 
