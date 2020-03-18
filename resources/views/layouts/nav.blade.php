@@ -52,7 +52,7 @@
                     </span>
                     <span class="navbar-caption-wrap">
                         <a class="navbar-caption text-white display-4" href="/product_innerpage">
-                            MOBIRISE
+                            Shopping Cart
                         </a>
                     </span>
                 </div>
@@ -110,7 +110,7 @@
                     </p>
                 </div>
                 <div class="col-md-6">
-                    <div class="social-list align-right">
+                    <div class="social-list align-right row">
                         <div class="soc-item">
                             <a href="https://twitter.com/mobirise" target="_blank">
                                 <span class="socicon-twitter socicon mbr-iconfont mbr-iconfont-social"></span>

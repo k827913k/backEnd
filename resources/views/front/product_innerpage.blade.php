@@ -87,7 +87,8 @@
             <input name="product_id" id="product_id" type="text">
             <input name="product_id" id="product_color" type="text">
             <input name="product_id" id="product_count" type="text">
-            <div class="buy">立即購買</div>
+            <a href="/cart"><div class="buy">立即購買</div></a>
+
         </div>
 </div>
 </section>

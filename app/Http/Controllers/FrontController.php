@@ -5,8 +5,8 @@ namespace App\Http\Controllers;
 use DB;
 use App\News;
 use App\Contact;
-use App\Mail\SendToUser;
 use App\Mail\OrderShipped;
+use Darryldecode\Cart\Cart;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 
@@ -49,13 +49,8 @@ class FrontController extends Controller
         return view('front/productType');
     }
 
-    //Button
-    public function product_innerpage()
-    {
-        return view('front/product_innerpage');
-    }
 
-    //Contact_us
+    //寄信/Contact_us
     public function Contact_us()
     {
         return view('front/Contact_us');
@@ -64,9 +59,29 @@ class FrontController extends Controller
     public function contactUs_store(Request $request)
     {
         $contact_data = $request->all();
-        $contact=Contact::create($contact_data);
+        $contact = Contact::create($contact_data);
         Mail::to('k827913k@gmail.com')->send(new OrderShipped($contact));
         //Mail::to($request->email)->send(new OrderShipped($contact));
         return redirect('/contact_us');
     }
+
+    //購物車
+
+    //cart innerpage
+    public function product_innerpage()
+    {
+        return view('front/product_innerpage');
+    }
+    
+    //cart
+    public function cart()
+    {
+        $items = \Cart::getContent()->sort();
+
+        return view('front.cart', compact('items'));
+    }
+
+
+
+
 }

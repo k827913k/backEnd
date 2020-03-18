@@ -11,50 +11,43 @@
 |
  */
 
-// Route::get('/', function () {
-//     return view('/content/index');
-// });
+//首頁
+Route::get('/', 'FrontController@index'); //Index
 
-//Infor
-Route::get('/news', 'FrontController@news'); //List Page
-Route::get('/news/{id}', 'FrontController@card_detail'); //Content Page
+//最新消息
+Route::get('/card-01', 'FrontController@news'); //List Page
+Route::get('/card-01/{id}', 'FrontController@card_detail'); //Content Page
 
-
-//Product
+//產品
 Route::get('/product', 'FrontController@product'); //List Page
+Route::get('/product/{id}', 'FrontController@card_detail'); //Content Page
 
+//寄信
+Route::get('/contact_us', 'FrontController@Contact_us'); //聯絡我們
+Route::post('/contactUs/store', 'FrontController@contactUs_store'); //儲存使用者資料
 
-Route::get('/product_innerpage', 'FrontController@product_innerpage'); //Button
+//購物車
+Route::get('/add_cart/{product_id}', 'FrontController@add_cart'); //加入購物車
+Route::get('/update_cart/{product_id}', 'FrontController@update_cart'); //更新購物車數量
+Route::post('/delete_cart/{product_id}', 'FrontController@delete_cart'); //於購物車中刪除商品
 
-//contact us
-Route::get('/contact_us', 'FrontController@Contact_us'); //contact us
-Route::post('/contactUs/store', 'FrontController@contactUs_store'); //contact us
+Route::get('/cart', 'FrontController@cart'); //cart 總覽
 
+Route::get('/product_innerpage', 'FrontController@product_innerpage'); //cart innerpage
 
 // ------------------------------------------------------------------------------
 
-Route::get('/', 'FrontController@index');
-
-Route::get('/card-01', 'FrontController@news');
-
-Route::get('/card-01/{id}', 'FrontController@card-01-detail');
-
-Route::get('/card-02', 'FrontController@news');
-
 Auth::routes();
+
 //首頁
 Route::get('/home', 'HomeController@index')->name('home');
-
-Route::post('/home/news/store', 'NewController@store');
 
 //最新消息管理
 Route::group(['middleware' => ['auth']], function () {
 
     Route::get('/home/news', 'NewController@index'); //首頁
-
     Route::get('/home/news/create', 'NewController@create'); //新增
     Route::post('/home/news/store', 'NewController@store'); //儲存
-
     Route::get('/home/news/edit/{id}', 'NewController@edit'); //編輯
     Route::post('/home/news/update/{id}', 'NewController@update'); //更新
     Route::post('/home/news/delete/{id}', 'NewController@delete'); //刪除
