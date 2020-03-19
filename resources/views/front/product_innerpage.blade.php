@@ -31,7 +31,7 @@
         height: 150px;
         line-height: 60px;
         background-color: #FFF;
-        margin: 30px 0 0 0 ;
+        margin: 30px 0 0 0;
         box-sizing: border-box;
         padding: 10px 40px;
     }
@@ -75,20 +75,26 @@
                     <div>銀色</div>
                 </div>
             </div>
-            <div>數量</div>
-            <div>
-                <div id="input_div">
-                    <input type="button" value="-" id="moins" onclick="minus()">
-                    <input type="text" size="5" value="0" id="count">
-                    <input type="button" value="+" id="plus" onclick="plus()">
-                </div>
-            </div>
-            <div class="info">10000 小米行動電源 QC3.0 高配版 金色 * 1 NT$795<span><br>總計：NT$795</span></div>
-            <input name="product_id" id="product_id" type="text">
-            <input name="product_id" id="product_color" type="text">
-            <input name="product_id" id="product_count" type="text">
-            <a href="/cart"><div class="buy">立即購買</div></a>
 
+            <form action="/add_cart/{{$Product->id}}" method="post">
+                @csrf
+
+                <div>數量</div>
+                <div>
+                    <div id="input_div">
+                        <input type="button" value="-" id="moins" onclick="minus()">
+                        <input type="text" size="5" value="0" id="count">
+                        <input type="button" value="+" id="plus" onclick="plus()">
+                    </div>
+                </div>
+                <div class="info">10000 小米行動電源 QC3.0 高配版 金色 * 1 NT$795<span><br>總計：NT$795</span></div>
+                <input type="text" name="product_id" id="product_id">
+                <input type="text" name="product_id" id="product_color" value="金色">
+                <input type="text" name="product_id" id="product_count">
+                <a href="/cart">
+                    <div class="buy">立即購買</div>
+                </a>
+            </form>
         </div>
 </div>
 </section>
